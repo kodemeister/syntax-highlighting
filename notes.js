@@ -63,7 +63,7 @@ function foo(cmd) {
   throw this.usageError(`${cmd} is not a valid access command`)
 }
 
-// 10. => should be black
+// 10. => should be blue
 // syntax: storage.type.function.arrow.js
 await otplease(this.npm, this.npm.flatOptions, (opts) => {
   return libnpmaccess.setMfa(pkgName, level, opts)
@@ -85,7 +85,7 @@ module.exports = Access
 // cli/lib/commands/audit.js 
 
 // 13. constructor should be purple
-// but it has storage.type.js scope
+// but keywords like "const" or "let" have scope storage.type.js which should be red
 class VerifySignatures {
   constructor(tree, filterSet, npm, opts) { }
 }
@@ -121,3 +121,20 @@ let e = a && b || !c;
 let f = typeof d === "number" && (a instanceof Foo);
 let g = 1 & 2 | 3 ^ ~4 << 5 >> 6 >>> 7;
 a ?? b; a ??= b; a?.b; a.foo?.(); a?.[0];
+
+// 18. Standard objects
+const standard = [
+  globalThis, Infinity, NaN, undefined,
+  eval, isFinite, isNaN, parseFloat, parseInt, decodeURI, decodeURIComponent, encodeURI, encodeURIComponent, escape, unescape,
+  Object, Function, Boolean, Symbol,
+  Error, AggregateError, EvalError, RangeError, ReferenceError, SyntaxError, TypeError, URIError, InternalError,
+  Number, BigInt, Math, Date,
+  String, RegExp,
+  Array, Int8Array, Uint8Array, Uint8ClampedArray, Int16Array, Uint16Array, Int32Array, Uint32Array, BigInt64Array, BigUint64Array, Float32Array, Float64Array,
+  Map, Set, WeakMap, WeakSet,
+  ArrayBuffer, SharedArrayBuffer, DataView, Atomics, JSON,
+  WeakRef, FinalizationRegistry,
+  Promise, GeneratorFunction, AsyncGeneratorFunction, Generator, AsyncGenerator, AsyncFunction,
+  Reflect, Proxy,
+  Intl, Intl.Collator, Intl.DateTimeFormat, Intl.DisplayNames, Intl.ListFormat, Intl.Locale, Intl.NumberFormat, Intl.PluralRules, Intl.RelativeTimeFormat, Intl.Segmenter,
+]
