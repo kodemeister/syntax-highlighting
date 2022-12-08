@@ -31,9 +31,10 @@ const createShape = (type, ...args) => {
 }
 
 const obj = {
-  id: 1,
+  id: parseInt(10),
+  regexp: /^foo[a-zA-z_-]+\s*\(\d+\)$/i,
   shape: createShape("Rectangle", "foo", 3, 4)
 }
 
-console.log(`Shape name: ${obj.shape.name}`);
-console.log(`Shape area: ${obj.shape.area()}`);
+console.log(`Shape name: ${obj.shape.name}\n`);
+console.log(`Shape area: ${obj.shape.area()}\n`);
