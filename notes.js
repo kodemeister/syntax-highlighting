@@ -138,3 +138,11 @@ const standard = [
   Reflect, Proxy,
   Intl, Intl.Collator, Intl.DateTimeFormat, Intl.DisplayNames, Intl.ListFormat, Intl.Locale, Intl.NumberFormat, Intl.PluralRules, Intl.RelativeTimeFormat, Intl.Segmenter,
 ]
+
+const value = isNaN(parseInt("10")) ? 0 : parseInt("10");
+
+// 19. Regular expressions
+const regex = /^abc[a-zA-z_-]\w+\d*.*(foo)?bar{1,10}|x(?=y)x(?!y)(?<=y)x(?<!y)x|(?:x)(?<foo>x)|\\x\(y\)z$/gui;
+
+// 20. Special characters
+const specials = ["\tfoo\r\n", `\tfoo\r\n`, '\r', `\n`];
